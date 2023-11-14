@@ -1,0 +1,34 @@
+--Para usuarios de Docker
+
+--1) Conectarse al contenedor
+docker exec -it <id_contenedor> bash
+
+
+--2) Crear carpeta en el contenedor
+mkdir cargadatos
+
+--3) Desde otro terminal: copiar el archivo al contenedor. En lugar de "titanic.csv" pueden colocar la ruta completa
+docker cp titanic.csv <id_contenedor>:/cargadatos/titanic.csv
+ 
+
+--4) En el terminal de su contenedor (Docker). Ingresar a psql
+psql -U postgres
+
+--5) Crear la tabla (ejecutar script - CREATE TABLE).
+
+--6) Ejecutar el comando copy
+COPY TITANIC_RAW FROM 'cargadatos/titanic.csv' DELIMITERS ',' CSV;
+
+
+
+--Localmente
+
+--1) Copiar el archivo titanic.csv al disco local: D:/datos/titanic.csv
+
+--2) Crear la tabla
+
+--3) Ejecutar psql:
+psql -d postgres
+
+--4) Ejecutar el comando copy
+COPY TITANIC_RAW FROM 'D:/datos/titanic.csv' DELIMITERS ',' CSV;
