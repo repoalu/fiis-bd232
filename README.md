@@ -15,7 +15,7 @@ cd fiis-bd232
 ```
 3. Iniciar los contenedores
 ```
-docker compose up
+docker compose up -d
 ```
 
 4. Ingresar a PgAdmin, con los siguientes datos:
